@@ -1,0 +1,52 @@
+
+# ------------------
+# SETTING UP DARKNET
+# ------------------
+
+cd ~
+git clone https://github.com/AlexeyAB/darknet.git
+cd darknet
+
+Edit the file "makefile" and at the top make certain that OPENCV=1 and LIBSO=1.
+
+
+
+Save the "makefile", then run the following commands:
+
+make
+sudo cp include/darknet.h /usr/local/include/
+sudo cp libdarknet.so /usr/local/lib/
+sudo ldconfig
+
+# ---------
+# COMPILING
+# ---------
+
+In order to compile the dense trajectories code, you need to have the following libraries installed in your system:
+* OpenCV library (tested with OpenCV-3.4.0)
+* ffmpeg library (tested with ffmpeg-4.3)
+
+then run the following commands:
+
+g++ DenseTrack.cpp DenseTrack.h Descriptors.h Initialize.h OpticalFlow.h yolo_v2_class.hpp -o densetrack `pkg-config --libs --cflags opencv` -ldarknet
+
+
+# --------------------------------
+# compute features on a test video
+# --------------------------------
+
+Once you are able to decode the video, computing our features is simple:
+
+./densetrack ./data/kd1mpg4.avi | gzip > output_files/out.features.gz
+
+第二次训练使用的文件夹 增加轨迹终点距离人体的距离 轨迹运动方向标准差 使用宽度作为归一化参数
+
+
+
+
+
+
+
+
+
+
