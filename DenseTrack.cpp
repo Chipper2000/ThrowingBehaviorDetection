@@ -44,8 +44,8 @@ int t_min = 3;
 
  int id=0;
  int revive=0;
- int ttl=30;//延缓的帧数
-char frame_num_string[6];//显示帧数
+ int ttl=30;
+char frame_num_string[6];
 
 
 
@@ -60,7 +60,7 @@ std::vector<std::string> objects_names_from_file(std::string const filename)
     return file_lines;
 }
 
-//判断是否为抛投轨迹的评分函数
+
 double score(double * input) {
     double var0;
     if ((input[2]) >= (0.45)) {
@@ -99,12 +99,12 @@ int main(int argc, char** argv)
 	 std::string out_videofile = "output_files/result_video/throw/kd_8_8_4_1_throw.avi";
     bool const save_output_videofile = true;   // true - for saving history
 	
-	//yolo 检测器文件配置
+	//Detector initialization
 	std::string names_file = "yolo_files/coco.names";
     std::string cfg_file = "yolo_files/yolov4.cfg";
     std::string weights_file = "yolo_files/yolov4.weights";
 	
-	//初始化检测器
+
     Detector detector(cfg_file, weights_file, 0);
 
     //Create multitracker 
