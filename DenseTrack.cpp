@@ -396,23 +396,8 @@ int main(int argc, char** argv)
                         //轨迹起点相距人体距离
 						double normalized_min_start_distance=min_start_distance/box_w;
 						double normalized_length=length/box_w;
-						//printf("start distance of this trajectory is%f\n",min_start_distance);
-						//printf("归一化的轨迹起始距离%f\n",normalized_min_start_distance);
-						//printf("归一化的轨迹终点距离%f\n",normalized_min_end_distance);
-						//printf("归一化的轨迹长度%f\n",normalized_length);
-						//printf("轨迹的余弦距离%f\n",mean_cos_distance);
-						//printf("轨迹的余弦距离方差%f\n",var_cos_distance);
-						//printf("轨迹的最长余弦距离%f\n",max_cos_distance);
-						//printf("轨迹的最短余弦距离%f\n",min_cos_distance);
-						//printf("the closeet bbox locates at%d\t%d\n",box_x,box_y);
-                        
-						/*判断抛投轨迹并画出
-						double input[3]={normalized_min_start_distance,0,normalized_length};
-						double prob=score(input);
-						if(prob>0.5)
-                              DrawThrowTrack(iTrack->point, iTrack->index, fscales[iScale], image);
-                         
-						*/
+		
+            
 
 		            	printf("0 1:%.3f 2:%.3f 3:%.3f 4:%.3f 5:%.3f 6:%.3f \t frame:%d num:%d\n",normalized_min_start_distance ,normalized_min_end_distance,normalized_length,mean_cos_distance,var_cos_distance,max_cos_distance,frame_num, k);
 						k++;
