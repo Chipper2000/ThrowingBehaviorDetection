@@ -39,7 +39,6 @@ Once you are able to decode the video, computing our features is simple:
 
 ./densetrack ./data/kd1mpg4.avi | gzip > output_files/out.features.gz
 
-第二次训练使用的文件夹 增加轨迹终点距离人体的距离 轨迹运动方向标准差 使用宽度作为归一化参数
 
 
 
